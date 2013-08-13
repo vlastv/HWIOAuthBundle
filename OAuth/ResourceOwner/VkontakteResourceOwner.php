@@ -29,8 +29,6 @@ class VkontakteResourceOwner extends GenericOAuth2ResourceOwner
         'access_token_url'    => 'https://oauth.vk.com/access_token',
         'infos_url'           => 'https://api.vk.com/method/users.get',
 
-        'user_response_class' => '\HWI\Bundle\OAuthBundle\OAuth\Response\VkontakteUserResponse',
-
         'fields' => 'nickname,photo_50',
         'name_case' => null,
     );
@@ -41,8 +39,7 @@ class VkontakteResourceOwner extends GenericOAuth2ResourceOwner
     protected $paths = array(
         'identifier' => 'response.0.uid',
         'nickname'   => 'response.0.nickname',
-        'last_name'   => 'response.0.last_name',
-        'first_name' => 'response.0.first_name',
+        'realname'   => array('response.0.last_name', 'response.0.first_name')
     );
 
     /**
